@@ -26,13 +26,13 @@ To set up the BookMyMovie  on your local machine, follow these steps:
 1. Clone the repository from GitHub:
 bash
 Copy code
-# git clone https://github.com/your-username/bookmymovie.git
+### git clone https://github.com/your-username/bookmymovie.git
 
 
 2. Navigate to the project directory:
 bash
 Copy code
-# cd bookmymovie
+### cd bookmymovie
 
 
 3. Installation: `npm install`
