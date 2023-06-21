@@ -15,24 +15,25 @@ const { connection } = require("../models/connector.js");
 
 
 // Get the last booking details from the database
-  exports.getLastMovieDetails = (req, res) => {
-    connection.findOne()
-      .sort({ createdAt: -1 })
-      .exec()
-      .then((post) => {
-        if (!post) {
-          res.status(404).json({ message: "No previous booking found" });
-        } else {
-          const lastMovieDetails = {
-            movie: post.movie,
-            slot: post.slot,
-            seats: post.seats,
-          };
-          res.status(200).json(lastMovieDetails);
+exports.getLastMovieDetails = (res) =>{
+  //this function finds the latest created document in the collection and send it to display in the frontend as last booking details//
+      connection.findOne().sort({createdAt: -1}).exec((err,post)=>{
+        // console.log(err,'post',post)
+        if(err){
+          res.status(500).send()
+          
         }
-      })
-      .catch((error) => {
-        console.error("Failed to retrieve last movie details:", error);
-        res.status(500).json({ error: "An error occurred while retrieving the last booking details" });
-      });
-  };
+        else if(!post){
+          res.status(404).send()
+        }
+        else{
+          let lastMovieDetails={}
+          lastMovieDetails['movie'] = post.movie;
+          lastMovieDetails['slot'] = post.slot;
+          lastMovieDetails['seats'] = post.seats;
+          res.status(200).send(lastMovieDetails)
+        }
+    })
+  
+ 
+}

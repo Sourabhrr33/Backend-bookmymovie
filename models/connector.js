@@ -1,7 +1,7 @@
 const mongodb = require('mongodb');
 require("dotenv").config({path:'./envfile/config.env'});
 
-const mongoURI = process.env.MONGOURILIVE
+const mongoURI = "mongodb+srv://sourabhrr3344:zEAO9w1iUIYpjZBF@bookmymovie.gmphslr.mongodb.net/?retryWrites=true&w=majority"
 
 let mongoose = require('mongoose');
 const { bookMovieSchema } = require('./schema')
@@ -13,6 +13,8 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
         console.log("error while connection", err)
     });
 let collection_connection = mongoose.model('bookmovietickets', bookMovieSchema)
+
+// zEAO9w1iUIYpjZBF
 //  UoCetsz7K5Ibx3Ud
 
 
