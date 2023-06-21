@@ -1,6 +1,7 @@
 const mongodb = require('mongodb');
+require("dotenv").config({path:'./envfile/config.env'});
 
-const mongoURI = "mongodb+srv://sourabhrr3344:UoCetsz7K5Ibx3Ud@cluster0.pmqxvol.mongodb.net/?retryWrites=true&w=majority"
+const mongoURI = process.env.MONGOURILIVE
 
 let mongoose = require('mongoose');
 const { bookMovieSchema } = require('./schema')

@@ -1,14 +1,21 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const port = 8080;
-// const path = require('path')
+require("dotenv").config({path:'./envfile/config.env'});
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const { connection } = require("./models/connector.js");
 const cors = require('cors');
 const { getLastMovieDetails, saveMovieDetails } = require("./controllers/user.js");
-app.use(cors())
+
+
+
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 
 // routes
@@ -16,7 +23,7 @@ app.use(cors())
 const bookingRoutes = express.Router();
 
 // middleware
-app.use("/bookmymovie", bookingRoutes);
+app.use("/api/bookmymovie", bookingRoutes);
 
 bookingRoutes.route("/").get((req, res) => {
   getLastMovieDetails(res);
@@ -26,6 +33,8 @@ bookingRoutes.route("/booking").post((req, res) => {
   const dataReceived = req.body;
   saveMovieDetails(dataReceived, res);
 });
+
+const port = 8080
 
     
 app.listen(port, () => console.log(`App listening on port ${port}!`));

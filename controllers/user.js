@@ -15,7 +15,7 @@ const { connection } = require("../models/connector.js");
 
 
 // Get the last booking details from the database
-  exports.getLastMovieDetails = (res) => {
+  exports.getLastMovieDetails = (req, res) => {
     connection.findOne()
       .sort({ createdAt: -1 })
       .exec()
