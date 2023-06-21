@@ -21,7 +21,7 @@ const { connection } = require("../models/connector.js");
       .exec()
       .then((post) => {
         if (!post) {
-          res.status(404).json({ message: "No bookings found" });
+          res.status(404).json({ message: "No previous booking found" });
         } else {
           const lastMovieDetails = {
             movie: post.movie,
