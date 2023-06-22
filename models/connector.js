@@ -1,5 +1,4 @@
 const mongodb = require('mongodb');
-require("dotenv").config({path:'./envfile/config.env'});
 
 const mongoURI = "mongodb+srv://sourabhrr3344:zEAO9w1iUIYpjZBF@bookmymovie.gmphslr.mongodb.net/?retryWrites=true&w=majority"
 
@@ -14,8 +13,6 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     });
 let collection_connection = mongoose.model('bookmovietickets', bookMovieSchema)
 
-// zEAO9w1iUIYpjZBF
-//  UoCetsz7K5Ibx3Ud
 
 
 exports.connection = collection_connection;

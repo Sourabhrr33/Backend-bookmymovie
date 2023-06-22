@@ -30,10 +30,6 @@ Copy code
 
 
 2. Navigate to the project directory:
-bash
-Copy code
-### cd bookmymovie
-
 
 3. Installation: `npm install`
 
