@@ -26,7 +26,7 @@ To set up the BookMyMovie  on your local machine, follow these steps:
 1. Clone the repository from GitHub:
 bash
 Copy code
-### git clone https://github.com/your-username/bookmymovie.git
+### git clone https://github.com/Sourabhrr33/Bookmymovie_Backend.git
 
 
 2. Navigate to the project directory:
